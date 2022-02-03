@@ -11,23 +11,24 @@
 #include <stdio.h>
 #include "include_all_lib.h"
 
-uint8_t array[10] = {0xff,0x36};
 int main()
 {
-   /* Unlock protected registers */
-    SYS_UnlockReg();
+  /* Unlock protected registers */
+  SYS_UnlockReg();
 	/* Set up CLK System here*/
-		SYS_Init();
+	SYS_Init();
 	/* Init uart_1 clk and map pin*/
-		SYS_Uart1();
+	SYS_Uart1();
+	/* Init CLK I2C*/
+	I2C_CLK_Source();
 	/* Lock protected registers */
-    SYS_LockReg();
+  SYS_LockReg();
 	
 	/*UART OPEN*/
 	UART_SetLine_Config(UART1, 115200, UART_WORD_LEN_8,UART_PARITY_NONE,UART_STOP_BIT_1);
 	UART_Open(UART1,115200);
-	UART_Write(UART1,array,1);
-	UART_Write(UART1,array +1,1);
+
+	SetUp();
 	/* Loop */
 	while(true){
 		

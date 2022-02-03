@@ -38,3 +38,14 @@ void SYS_Uart1(void){
     SYS->P1_MFP &= ~(SYS_MFP_P12_Msk | SYS_MFP_P13_Msk);
     SYS->P1_MFP |= SYS_MFP_P12_RXD1 | SYS_MFP_P13_TXD1;
 }
+
+
+void I2C_CLK_Source(void)
+{
+	CLK_EnableModuleClock(I2C1_MODULE);
+		/* Configure the SDA0 & SCL0 of I2C0 pins */
+	SYS->P4_MFP &= ~(SYS_MFP_P44_Msk | SYS_MFP_P45_Msk);
+	SYS->P4_MFP |= (SYS_MFP_P44_SCL1 | SYS_MFP_P45_SDA1);
+}
+
+
