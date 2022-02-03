@@ -24,5 +24,17 @@ void SYS_Init(void)
 
     /* Set core clock as PLL_CLOCK from PLL */
     CLK_SetCoreClock(PLL_CLOCK);
-	
+		
+}
+
+void SYS_Uart1(void){
+	 /* Enable UART module clock */
+    CLK_EnableModuleClock(UART1_MODULE);
+    /* Select UART module clock source */
+    CLK_SetModuleClock(UART1_MODULE, CLK_CLKSEL1_UART_S_HIRC, CLK_CLKDIV_UART(1));
+
+
+    /* Set P1 multi-function pins for UART1 RXD and TXD  */
+    SYS->P1_MFP &= ~(SYS_MFP_P12_Msk | SYS_MFP_P13_Msk);
+    SYS->P1_MFP |= SYS_MFP_P12_RXD1 | SYS_MFP_P13_TXD1;
 }
