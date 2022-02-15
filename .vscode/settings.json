@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "include_all_lib.h": "c",
+        "delay_sys.h": "c"
+    }
+}

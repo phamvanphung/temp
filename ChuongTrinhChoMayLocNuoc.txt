@@ -1,0 +1,41 @@
+- 1 core:
+
+- 2 phần:
+Kiểm tra PWM 12V, DC 24V.
+khơi động máy, chạy dò van 3 => ổn định => Kiem tra may => Đo áp => Bật lọc nước => đo dòng : kiểm tra chạm chập
+Đo dòng từng van điện từ.
+Cả quá trình mất dưới 3p.
+
+phần 2:
+Bật chế độ lọc nước.	- Đo lưu lượng bằng ngắt timer và ngắt ngoài.
+đợi 30s, kiểm tra có nước thì tiếp tục.
+vòng lặp:
+- kiểm tra điều kiện lọc nước. nếu có thì thực hiện. thực hiện thì trong vòng lặp thực hiện. nếu không có nước thì trở về 
+lọc nước bình thường, xem như thực hiện xong.
+- nếu lọc nước bình thường, kiểm tra phao có đầy chưa. Nếu chưa đầy thì lọc.
+- chạy 30s
+- Kiểm tra có nước
+- kiểm tra cụm áp, kiểm tra cụm dòng, kiểm tra áp lực(không cần lúc này cũng được).
++ nếu không có nước tắt máy 5p, bật lại trong 30s.
+
+=> Lọc lõi 1:
+chạy 30s, kiểm tra có nước. Nếu có nước thì tiếp hành:
+- Kiểm tra cụm volt, dòng kiểm tra thiết bị.
+- Tiến hành lọc nước thuận (vòng lặp kiểm tra volt, áp,dòng,áp suất => nếu bị lõi+> tắt máy và thoát=> xem như lọc xong)
+- Tiền hành lọc nước Nghươc( vòng lặp Kiểm tra volt, áp, dòng, áp suất) => nếu bị lỗi => tắt máy và thoát => xem như lọc xong
+- xong break khỏi vòng lặp.
+
+=> lọc lõi 2: tương tự lõi 1.
+
+=> Các biến cờ: 
+		+ Điện áp ổn định
+		+ dòng điện ổn định
+		+ điều kiện lọc lõi 1
+		+ Điều kiện lọc lõi 2
+		+ Phao đầy
+		+ Số lần nghỉ sau 30p của máy.
+
+		
+
+
+

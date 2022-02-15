@@ -463,14 +463,29 @@
               <FilePath>D:\Nuvoton\project\Template\Keil\Library\src\i2c.c</FilePath>
             </File>
             <File>
-              <FileName>I2C_custom.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Components\src\I2C_custom.c</FilePath>
-            </File>
-            <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Library\src\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Library\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Library\src\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>Delay_sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\Delay_sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Library\src\pwm.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -501,6 +516,21 @@
               <FileName>DS1307.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Components\src\DS1307.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_adc_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\gpio_adc_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>I2C_custom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\I2C_custom.c</FilePath>
+            </File>
+            <File>
+              <FileName>time_tick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\time_tick.c</FilePath>
             </File>
           </Files>
         </Group>

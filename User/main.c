@@ -21,17 +21,25 @@ int main()
 	SYS_Uart1();
 	/* Init CLK I2C*/
 	I2C_CLK_Source();
+	/* Init Timer 2ms CLK */
+	CLK_Source_TMR();
+	/* Init ADC CLK- Init Pin*/
+	ADC_CLK_Source();
+	/* init PWM*/
+	init_clk_PWM();
+	
+	SystemCoreClockUpdate();
 	/* Lock protected registers */
-  SYS_LockReg();
+  	SYS_LockReg();
 	
 	/*UART OPEN*/
 	UART_SetLine_Config(UART1, 115200, UART_WORD_LEN_8,UART_PARITY_NONE,UART_STOP_BIT_1);
 	UART_Open(UART1,115200);
-
 	SetUp();
 	/* Loop */
-	while(true){
-		
+	while(true)
+	{
+		program();
 	}
 }
 
