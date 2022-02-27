@@ -50,7 +50,7 @@ void I2C_CLK_Source(void)
 
 void CLK_Source_TMR(void)
 {
-	  CLK_EnableModuleClock(TMR0_MODULE);
+	CLK_EnableModuleClock(TMR0_MODULE);
     CLK_SetModuleClock(TMR0_MODULE,CLK_CLKSEL1_TMR0_S_HIRC,1);
 }
 

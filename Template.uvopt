@@ -218,7 +218,7 @@
 
   <Group>
     <GroupName>Library</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -401,8 +401,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Components\src\DS1307.c</PathWithFileName>
-      <FilenameWithoutPath>DS1307.c</FilenameWithoutPath>
+      <PathWithFileName>.\Components\src\gpio_adc_init.c</PathWithFileName>
+      <FilenameWithoutPath>gpio_adc_init.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -413,8 +413,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Components\src\gpio_adc_init.c</PathWithFileName>
-      <FilenameWithoutPath>gpio_adc_init.c</FilenameWithoutPath>
+      <PathWithFileName>.\Components\src\time_tick.c</PathWithFileName>
+      <FilenameWithoutPath>time_tick.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -425,8 +425,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Components\src\I2C_custom.c</PathWithFileName>
-      <FilenameWithoutPath>I2C_custom.c</FilenameWithoutPath>
+      <PathWithFileName>.\Components\src\ds1307.c</PathWithFileName>
+      <FilenameWithoutPath>ds1307.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -437,8 +437,32 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\Components\src\time_tick.c</PathWithFileName>
-      <FilenameWithoutPath>time_tick.c</FilenameWithoutPath>
+      <PathWithFileName>.\Components\src\i2c_soft.c</PathWithFileName>
+      <FilenameWithoutPath>i2c_soft.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>20</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Components\src\TM1368.c</PathWithFileName>
+      <FilenameWithoutPath>TM1368.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>21</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Components\src\ZMPT101B.c</PathWithFileName>
+      <FilenameWithoutPath>ZMPT101B.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

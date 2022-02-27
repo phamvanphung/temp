@@ -513,24 +513,34 @@
               <FilePath>.\Components\src\clk_init.c</FilePath>
             </File>
             <File>
-              <FileName>DS1307.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Components\src\DS1307.c</FilePath>
-            </File>
-            <File>
               <FileName>gpio_adc_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Components\src\gpio_adc_init.c</FilePath>
             </File>
             <File>
-              <FileName>I2C_custom.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Components\src\I2C_custom.c</FilePath>
-            </File>
-            <File>
               <FileName>time_tick.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Components\src\time_tick.c</FilePath>
+            </File>
+            <File>
+              <FileName>ds1307.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\ds1307.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_soft.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\i2c_soft.c</FilePath>
+            </File>
+            <File>
+              <FileName>TM1368.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\TM1368.c</FilePath>
+            </File>
+            <File>
+              <FileName>ZMPT101B.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Components\src\ZMPT101B.c</FilePath>
             </File>
           </Files>
         </Group>

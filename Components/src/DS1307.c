@@ -1,118 +1,52 @@
-#include <stdio.h>
-#include "M051Series.h"
-#include "i2c.h"
-#include "i2c_custom.h"
-#include "DS1307.h"
+// Header: Thu vien DS1307
+// File Name: Giao Tiep DS1307
+// Author: Nguyen Xuan Khai
+// Date: 1/7/2017
+
+#ifndef _DS1307_C
+#define _DS1307_C
+#include "i2c_soft.h"
+#include "ds1307.h"
 
 
-struct
+
+unsigned char DS1307_read(unsigned char addr)
 {
- unsigned char s;
- unsigned char m;
- unsigned char h;
- unsigned char dy;
- unsigned char dt;
- unsigned char mt;
- unsigned char yr;
-}time;
-
-
-void DS1307_INIT(void)
+	unsigned char temp,ret;
+	I2C_start(); 		/* Start i2c bus */
+	I2C_write(0xD0); 	/* Connect to DS1307 */
+	I2C_write(addr); 	/* Request RAM address on DS1307 */
+	I2C_start(); 		/* Start i2c bus */
+	I2C_write(0XD1); 	/* Connect to DS1307 for Read */
+	ret = I2C_read(); 	/* Receive data */
+	I2C_stop();
+	//**********************************************************
+	temp = ret; 							/*BCD to HEX*/
+	ret = (((ret/16)*10)+ (temp & 0x0f)); 	/*for Led 7seg*/
+	//**********************************************************
+	return ret;
+}
+void DS1307_Write(unsigned char addr,unsigned char dat)
 {
-	MY_I2C_INIT(MyI2C,DS1307_ADDR,100000);
-	DS1307_Write(control_reg,0x00);
+	unsigned int temp;
+	//********************************************** 
+	temp = dat ; 						/*HEX to BCD*/
+	dat = (((dat/10)*16)|(temp %10)); 	/*for Led 7seg*/
+	//**********************************************
+	I2C_start(); 		/* Start i2c bus */
+	I2C_write(0XD0); 	/* Connect to DS1307 */
+	I2C_write(addr); 	/* Request RAM address on DS1307 */
+	I2C_write(dat); 	/* Connect to DS1307 for Read */
+	I2C_stop();
 }
 
-void DS1307_Write(uint8_t addr, uint8_t value)
+//xuat xung 1Hz tren chan 7 ds1307
+void Out_1Hz()
 {
-	MY_I2C_START(MyI2C);
-	I2C_SET_CONTROL_REG(MyI2C, I2C_I2CON_STA);
-	MY_I2C_WRITE(MyI2C,DS1307_WR);
-	MY_I2C_WRITE(MyI2C,addr);
-	MY_I2C_WRITE(MyI2C,value);
-	I2C_SET_CONTROL_REG(MyI2C, I2C_I2CON_STO_SI);
-	//MY_I2C_STOP(MyI2C);
-}
-
-
-uint8_t DS1307_READ(uint8_t addr)
-{
-	uint8_t value = 0x00;
-	MY_I2C_START(MyI2C);
-	I2C_SET_CONTROL_REG(MyI2C, I2C_I2CON_STA);
-	MY_I2C_WRITE(MyI2C,DS1307_WR);
-	MY_I2C_WRITE(MyI2C,addr);
-	
-	MY_I2C_START(MyI2C);
-	MY_I2C_WRITE(MyI2C,DS1307_RD);
-	value = MY_I2C_READ(MyI2C);
-	I2C_SET_CONTROL_REG(MyI2C, I2C_I2CON_STO_SI);
-	//MY_I2C_STOP(MyI2C);
-	return value;
-}
-
-
-uint8_t bcd_to_decimal(uint8_t value)
-{
- return ((value & 0x0F) + (((value & 0xF0) >> 0x04) * 0x0A));
-}
-uint8_t decimal_to_bcd(uint8_t value)
-{
- return (((value / 0x0A) << 0x04) & 0xF0) | ((value % 0x0A) & 0x0F);
-}
-
-
-void DS1307_get_time(void)
-{
-	time.s = DS1307_READ(sec_reg);
-	time.s = bcd_to_decimal(time.s);
-	time.m = DS1307_READ(min_reg);
-	time.m = bcd_to_decimal(time.m);
-	 
-	time.h = DS1307_READ(hr_reg);
-	time.h = bcd_to_decimal(time.h);
-
-	time.dy = DS1307_READ(day_reg);
-	time.dy = bcd_to_decimal(time.dy);
-
-	time.dt = DS1307_READ(date_reg);
-	time.dt = bcd_to_decimal(time.dt);
-
-	time.mt = DS1307_READ(month_reg);
-	time.mt = bcd_to_decimal(time.mt);
-
-	time.yr = DS1307_READ(year_reg);
-	time.yr = bcd_to_decimal(time.yr);
-
-}
-
-void DS1307_set_time(void)
-{
- time.s = decimal_to_bcd(time.s);
- DS1307_Write(sec_reg, time.s);
- 
- time.m = decimal_to_bcd(time.m);
- DS1307_Write(min_reg, time.m);
- 
- time.h = decimal_to_bcd(time.h);
- DS1307_Write(hr_reg, time.h);
- 
- time.dy = decimal_to_bcd(time.dy);
- DS1307_Write(day_reg, time.dy);
- 
- time.dt = decimal_to_bcd(time.dt);
- DS1307_Write(date_reg, time.dt);
- 
- time.mt = decimal_to_bcd(time.mt);
- DS1307_Write(month_reg, time.mt);
- 
- time.yr = decimal_to_bcd(time.yr);
- DS1307_Write(year_reg, time.yr);
-}
-
-
-
-
-
-
-
+	I2C_start(); 
+	I2C_write(0xD0); 
+	I2C_write(0x07);   
+	I2C_write(0x10);
+	I2C_stop();
+}	
+#endif

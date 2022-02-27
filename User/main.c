@@ -15,26 +15,20 @@ int main()
 {
   /* Unlock protected registers */
   SYS_UnlockReg();
-	/* Set up CLK System here*/
-	SYS_Init();
-	/* Init uart_1 clk and map pin*/
-	SYS_Uart1();
-	/* Init CLK I2C*/
-	I2C_CLK_Source();
+	//SYS_Uart1();
 	/* Init Timer 2ms CLK */
 	CLK_Source_TMR();
-	/* Init ADC CLK- Init Pin*/
-	ADC_CLK_Source();
 	/* init PWM*/
 	init_clk_PWM();
+	/* Init ADC CLK- Init Pin*/
+	ADC_CLK_Source();
 	
 	SystemCoreClockUpdate();
 	/* Lock protected registers */
   	SYS_LockReg();
-	
 	/*UART OPEN*/
-	UART_SetLine_Config(UART1, 115200, UART_WORD_LEN_8,UART_PARITY_NONE,UART_STOP_BIT_1);
-	UART_Open(UART1,115200);
+	//UART_SetLine_Config(UART1, 115200, UART_WORD_LEN_8,UART_PARITY_NONE,UART_STOP_BIT_1);
+	//UART_Open(UART1,115200);
 	SetUp();
 	/* Loop */
 	while(true)

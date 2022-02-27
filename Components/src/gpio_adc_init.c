@@ -10,10 +10,8 @@ void GPIO_Init(void)
 	// init gpio input
 	GPIO_SetMode(P4,BIT3,GPIO_PMD_INPUT);      // Auto van 3
 	GPIO_SetMode(P3,BIT5,GPIO_PMD_INPUT);      // Phao bon nuoc
-	GPIO_SetMode(P2,BIT6,GPIO_PMD_INPUT);      // Phao in
-	AutoVan3 = off;
-	PhaoBonNuoc = off;
-	PhaoIn = off;
+	//AutoVan3 = off;
+	//PhaoBonNuoc = off;
 	// init gpio output
 	GPIO_SetMode(P4,BIT2,GPIO_PMD_OUTPUT);      // motor 220v
 	GPIO_SetMode(P1,BIT4,GPIO_PMD_OUTPUT);      // Van 6
@@ -32,7 +30,7 @@ void GPIO_Init(void)
 	Van2 = off;
 	Van1 = off;
 	VanDP = off;
-
+	Chuong = off;
 }
 
 
@@ -48,7 +46,7 @@ void GPIOP2P3P4_IRQHandler(void)
 
 void init_interup(void)
 {
-		GPIO_SetMode(P3, BIT1, GPIO_PMD_INPUT);
+	GPIO_SetMode(P3, BIT1, GPIO_PMD_INPUT);  // Luu Luong
     GPIO_EnableInt(P3, 1, GPIO_INT_RISING);
     NVIC_EnableIRQ(GPIO_P2P3P4_IRQn);
 }
@@ -59,7 +57,7 @@ void init_clk_PWM(void)
 	CLK_SetModuleClock(PWM67_MODULE, CLK_CLKSEL2_PWM67_S_HIRC, 0);
 	SYS_ResetModule(PWM47_RST);
 	SYS->P2_MFP &= ~(SYS_MFP_P27_Msk);
-  SYS->P2_MFP |= SYS_MFP_P27_PWM7;
+ 	SYS->P2_MFP |= SYS_MFP_P27_PWM7;
 }
 
 
